@@ -23,9 +23,10 @@ dn          = datenow.strftime("%p")
 hn          = int(datenow.strftime("%I"))
 
 if dn == "PM" and hn > 5:
+    rtnow       = dino[int(datenow.strftime("%w"))] + " " + pasaran[modulo]
     diff        = tomorrow - datebase
     diffdays    = diff.days
     modulo      = diffdays % 5
-    print "Saiki malem " + dino[int(tomorrow.strftime("%w"))]+" "+pasaran[modulo]
+    print "Saiki dino "+ rtnow + ", malem " + dino[int(tomorrow.strftime("%w"))]+" "+pasaran[modulo]
 else:
     print "Saiki dino " + dino[int(datenow.strftime("%w"))]+" "+ pasaran[modulo]
