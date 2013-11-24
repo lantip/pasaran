@@ -6,3 +6,9 @@ Saya tinggal di kampung yang rapat RT-nya ditentukan berdasar pasaran, kami meng
 Maka saya bikinlah script ini, biar saya bisa cek tiap hari, saat ini pasarannya apa.
 
 Kalau ada kritik saran, monggo.
+
+Penggunaan
+__________
+
+    $ python pasaran.py
+    Saiki malem Septu Pon

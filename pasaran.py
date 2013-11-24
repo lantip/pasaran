@@ -6,9 +6,9 @@ datebase    = datetime.strptime('1 1 1800', '%d %m %Y')
 tomorrow    = datenow + timedelta(days=1)
 
 # array to get the pasaran
-pasaran     = ['Pon', 'Wage', 'Kliwon', 'Legi', 'Pahing']
+pasaran     = ('Pon', 'Wage', 'Kliwon', 'Legi', 'Pahing')
 # array to get the date name in javanese
-dino        = ['Minggu', 'Senen', 'Seloso', 'Rebo', 'Kemis', 'Jemuwah', 'Septu']
+dino        = ('Minggu', 'Senen', 'Seloso', 'Rebo', 'Kemis', 'Jemuwah', 'Septu')
 
 # find the difference between now and base date, in days
 diff        = datenow - datebase
