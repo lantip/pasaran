@@ -30,7 +30,7 @@ dn          = datenow.strftime("%p")
 hn          = int(datenow.strftime("%I"))
 
 
-if dn == "PM" and hn > 5:
+if dn == "PM" and hn > 5 and hn != 12:
     rtnow       = dino[int(datenow.strftime("%w"))] + " " + pasaran[modulo]
     diff        = tomorrow - datebase
     diffdays    = diff.days
