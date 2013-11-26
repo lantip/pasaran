@@ -10,9 +10,9 @@ Kalau ada kritik saran, monggo.
 Tambahan
 ========
 Saya menambahkan weton.py yang fungsinya untuk mencari:
-    - weton untuk tanggal tertentu, misalnya mencari pasaran tanggal 20-12-2013
-    - geblak. untuk mencari tanggal 3 dina, 7 dina, 40 dina dan seterusnya, biasanya perhitungan ini dipakai untuk menentukan kapan orang jawa melakukan selamatan terkait dengan meninggalnya seseorang. untuk menggunakan fungsi ini, anda cukup memasukkan tanggal kematian orang tersebut.
-    - pasaran. untuk mencari kombinasi hari dan pasaran dalam setahun. untuk ini anda tinggal memasukkan kombinasi misalnya "senin wage" atau "selasa kliwon" atau "kamis pahing" dan seterusnya.
+- weton untuk tanggal tertentu, misalnya mencari pasaran tanggal 20-12-2013
+- geblak. untuk mencari tanggal 3 dina, 7 dina, 40 dina dan seterusnya, biasanya perhitungan ini dipakai untuk menentukan kapan orang jawa melakukan selamatan terkait dengan meninggalnya seseorang. untuk menggunakan fungsi ini, anda cukup memasukkan tanggal kematian orang tersebut.
+- pasaran. untuk mencari kombinasi hari dan pasaran dalam setahun. untuk ini anda tinggal memasukkan kombinasi misalnya "senin wage" atau "selasa kliwon" atau "kamis pahing" dan seterusnya.
 
 
 Penggunaan
