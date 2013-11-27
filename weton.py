@@ -74,60 +74,18 @@ if args.weton:
     print TXT_DEFAULT
 
 if args.geblak:
+    GEBLAKS = { 'Geblake':0, 'Telung dinane':2, 'Pitung dinane':6,
+                'Patang puluh dinane': 39, 'Nyatus dinane': 99,
+                'Pendhak I dinane': 353, 'Pendhak II dinane': 707,
+                'Nyewu dinane': 999 }
     dateinput   = datetime.strptime(args.geblak, '%d-%m-%Y')
-    modulo      = pasaran_formula(dateinput)
-    print TXT_YELLOW + ("Geblake jenat: %s, %s %s" % \
-        (args.geblak, dino[int(dateinput.strftime("%w"))], pasaran[modulo]))
-    print TXT_DEFAULT
 
-    # telung dinane
-    date_3dina  = dateinput + timedelta(days=2)
-    modulo      = pasaran_formula(date_3dina)
-    print TXT_BLUE + ("Telung dinane jenat: %s, %s %s" % \
-        (date_3dina.strftime("%d-%m-%Y"), dino[int(date_3dina.strftime("%w"))], pasaran[modulo]))
-    print TXT_DEFAULT
-
-    #pitung dinane
-    date_3dina  = dateinput + timedelta(days=6)
-    modulo      = pasaran_formula(date_3dina)
-    print TXT_GRAY + ("Pitung dinane jenat: %s, %s %s" % \
-        (date_3dina.strftime("%d-%m-%Y"), dino[int(date_3dina.strftime("%w"))], pasaran[modulo]))
-    print TXT_DEFAULT
-
-    #patang puluh dinane
-    date_3dina  = dateinput + timedelta(days=39)
-    modulo      = pasaran_formula(date_3dina)
-    print TXT_PURPLE + ("Patang puluh dinane jenat: %s, %s %s" % \
-        (date_3dina.strftime("%d-%m-%Y"), dino[int(date_3dina.strftime("%w"))], pasaran[modulo]))
-    print TXT_DEFAULT
-
-    #nyatus dinane
-    date_3dina  = dateinput + timedelta(days=99)
-    modulo      = pasaran_formula(date_3dina)
-    print TXT_CYAN + ("Nyatus dinane jenat: %s, %s %s" % (date_3dina.strftime("%d-%m-%Y"), dino[int(date_3dina.strftime("%w"))], pasaran[modulo]))
-    print TXT_DEFAULT
-
-    #pendhak 1 dinane
-    date_3dina  = dateinput + timedelta(days=353)
-    modulo      = pasaran_formula(date_3dina)
-    print TXT_WHITE + ("Pendhak I dinane jenat: %s, %s %s" % \
-        (date_3dina.strftime("%d-%m-%Y"), dino[int(date_3dina.strftime("%w"))], pasaran[modulo]))
-    print TXT_DEFAULT
-
-    #pendhak 2 dinane
-    date_3dina  = dateinput + timedelta(days=707)
-    modulo      = pasaran_formula(date_3dina)
-    print TXT_YELLOW + ("Pendhak II dinane jenat: %s, %s %s" % \
-        (date_3dina.strftime("%d-%m-%Y"), dino[int(date_3dina.strftime("%w"))], pasaran[modulo]))
-    print TXT_DEFAULT
-
-    #nyewu dinane
-    date_3dina  = dateinput + timedelta(days=999)
-    modulo      = pasaran_formula(date_3dina)
-
-    print ("Nyewu dinane jenat: %s, %s %s" % (date_3dina.strftime("%d-%m-%Y"), \
-        dino[int(date_3dina.strftime("%w"))], pasaran[modulo]))
-    print ""
+    for k,v in GEBLAKS.items():
+        date_pasar = dateinput + timedelta(days=int(v))
+        modulo     = pasaran_formula(date_pasar)
+        print TXT_YELLOW + (str(k)+" jenat: %s, %s %s" % \
+            (args.geblak, dino[int(date_pasar.strftime("%w"))], pasaran[modulo]))
+        print TXT_DEFAULT
 
 if args.pasaran:
     var         = args.pasaran.split()
