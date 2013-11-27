@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from datetime import datetime, timedelta, date
 import sys, time, argparse
+import collections
 
 parser = argparse.ArgumentParser(description='Mencari Weton, Geblak dan Pasaran')
 parser.add_argument('-w','--weton', help='Masukkan tanggal untuk mencari weton. \
@@ -74,13 +75,14 @@ if args.weton:
     print TXT_DEFAULT
 
 if args.geblak:
-    GEBLAKS = { 'Geblake':0, 'Telung dinane':2, 'Pitung dinane':6,
-                'Patang puluh dinane': 39, 'Nyatus dinane': 99,
-                'Pendhak I dinane': 353, 'Pendhak II dinane': 707,
-                'Nyewu dinane': 999 }
+    GEBLAKS = { '1. Geblake':0, '2. Telung dinane':2, '3. Pitung dinane':6,
+                '4. Patang puluh dinane': 39, '5. Nyatus dinane': 99,
+                '6. Pendhak I dinane': 353, '7. Pendhak II dinane': 707,
+                '8. Nyewu dinane': 999 }
+    od = collections.OrderedDict(sorted(GEBLAKS.items()))
     dateinput   = datetime.strptime(args.geblak, '%d-%m-%Y')
 
-    for k,v in GEBLAKS.items():
+    for k,v in od.items():
         date_pasar = dateinput + timedelta(days=int(v))
         modulo     = pasaran_formula(date_pasar)
         print TXT_YELLOW + (str(k)+" jenat: %s, %s %s" % \
