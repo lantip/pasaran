@@ -7,6 +7,10 @@ Maka saya bikinlah script ini, biar saya bisa cek tiap hari, saat ini pasarannya
 
 Kalau ada kritik saran, monggo.
 
+Mac Apps
+========
+Dengan menggunakan `rumps` dan `py2app` saya generate script pasaran ini menjadi apps. Semoga berguna. :)
+
 Tambahan
 ========
 Saya menambahkan weton.py yang fungsinya untuk mencari:
