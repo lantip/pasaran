@@ -86,7 +86,7 @@ if args.geblak:
         date_pasar = dateinput + timedelta(days=int(v))
         modulo     = pasaran_formula(date_pasar)
         print TXT_YELLOW + (str(k)+" jenat: %s, %s %s" % \
-            (args.geblak, dino[int(date_pasar.strftime("%w"))], pasaran[modulo]))
+            (date_pasar, dino[int(date_pasar.strftime("%w"))], pasaran[modulo]))
         print TXT_DEFAULT
 
 if args.pasaran:
