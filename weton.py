@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# ﷽
 from datetime import datetime, timedelta, date
 import sys, time, argparse
 import collections
@@ -86,7 +88,7 @@ if args.geblak:
         date_pasar = dateinput + timedelta(days=int(v))
         modulo     = pasaran_formula(date_pasar)
         print TXT_YELLOW + (str(k)+" jenat: %s, %s %s" % \
-            (date_pasar, dino[int(date_pasar.strftime("%w"))], pasaran[modulo]))
+            (datetime.strftime(date_pasar, '%d-%m-%Y'), dino[int(date_pasar.strftime("%w"))], pasaran[modulo]))
         print TXT_DEFAULT
 
 if args.pasaran:
