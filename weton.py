@@ -5,6 +5,8 @@ from datetime import datetime, timedelta, date
 import sys, time, argparse
 import collections
 
+from strftime import strftime
+
 parser = argparse.ArgumentParser(description='Mencari Weton, Geblak dan Pasaran')
 parser.add_argument('-w','--weton', help='Masukkan tanggal untuk mencari weton. \
     format tanggal dd-mm-yyyy')
@@ -32,7 +34,10 @@ def pasaran_formula(dateinput):
     datebase    = datetime.strptime('1 1 1800', '%d %m %Y')
 
     # find the difference between now and base date, in days
-    diff        = dateinput - datebase
+    if dateinput > datebase:
+        diff        = dateinput - datebase
+    else:
+        diff    = datebase - dateinput
     diffdays    = diff.days
 
     # find the modulo by 5
@@ -73,7 +78,7 @@ if args.weton:
     dateinput   = datetime.strptime(args.weton, '%d-%m-%Y')
     modulo      = pasaran_formula(dateinput)
     print TXT_YELLOW + ("Tanggal %s iku nagadinane %s %s" % \
-        (args.weton, dino[int(dateinput.strftime("%w"))], pasaran[modulo]) )
+        (args.weton, dino[int(strftime(dateinput,"%w"))], pasaran[modulo]) )
     print TXT_DEFAULT
 
 if args.geblak:
@@ -88,7 +93,7 @@ if args.geblak:
         date_pasar = dateinput + timedelta(days=int(v))
         modulo     = pasaran_formula(date_pasar)
         print TXT_YELLOW + (str(k)+" jenat: %s, %s %s" % \
-            (datetime.strftime(date_pasar, '%d-%m-%Y'), dino[int(date_pasar.strftime("%w"))], pasaran[modulo]))
+            (strftime(date_pasar, '%d-%m-%Y'), dino[int(strftime(date_pasar, "%w"))], pasaran[modulo]))
         print TXT_DEFAULT
 
 if args.pasaran:
@@ -96,7 +101,7 @@ if args.pasaran:
     year        = raw_input('Mencari pasaran di Tahun: '+'\n')
     listdays    = WeekFinder(var[0].lower(), var[1].lower(), year)
     for key,day in enumerate(listdays):
-        print TXT_YELLOW+var[0]+" "+var[1]+TXT_DEFAULT+" ("+str(key)+") :"+day.strftime("%d-%m-%Y")
+        print TXT_YELLOW+var[0]+" "+var[1]+TXT_DEFAULT+" ("+str(key)+") :"+strftime(day,"%d-%m-%Y")
 
 
 if not args.weton and not args.geblak and not args.pasaran:
