@@ -82,10 +82,10 @@ if args.weton:
     print TXT_DEFAULT
 
 if args.geblak:
-    GEBLAKS = { '1. Geblake':0, '2. Telung dinane':2, '3. Pitung dinane':6,
-                '4. Patang puluh dinane': 39, '5. Nyatus dinane': 99,
-                '6. Pendhak I dinane': 353, '7. Pendhak II dinane': 707,
-                '8. Nyewu dinane': 999 }
+    GEBLAKS = { '1. Geblake':0, '2. Telung dinane':3, '3. Pitung dinane':7,
+                '4. Patang puluh dinane': 40, '5. Nyatus dinane': 100,
+                '6. Pendhak I dinane': 354, '7. Pendhak II dinane': 708,
+                '8. Nyewu dinane': 1000 }
     od = collections.OrderedDict(sorted(GEBLAKS.items()))
     dateinput   = datetime.strptime(args.geblak, '%d-%m-%Y')
 
