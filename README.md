@@ -48,3 +48,6 @@ Penggunaan
     jumat kliwon (2) :22-03-2013
     ...
 
+    ## untuk mencari pawukon
+    $ python weton.py -pw "20-9-1906"
+    20 September 1906 iku dino Kemis Kliwon, wuku: Wukir
