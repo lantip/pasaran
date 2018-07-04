@@ -51,3 +51,7 @@ Penggunaan
     ## untuk mencari pawukon
     $ python weton.py -pw "20-9-1906"
     20 September 1906 iku dino Kemis Kliwon, wuku: Wukir
+
+Rujukan
+========
+- [Tiga Cara Menentukan Nama Wuku Dalam Pawukon Saka]  (https://jmpunsoed.files.wordpress.com/2015/12/4-agung-sugiyanto-indar1.pdf)
