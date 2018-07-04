@@ -14,6 +14,8 @@ parser.add_argument('-g','--geblak',help='Masukkan tanggal meninggal \
     untuk mencari 7 dino, 40 dino, dan seterusnya. Format tanggal dd-mm-yyyy')
 parser.add_argument('-p','--pasaran',help='Masukkan hari dan pasaran \
     untuk mencari tanggal masehi untuk kombinasi itu. Format "senin wage"')
+parser.add_argument('-pw','--pawukon',help='Masukkan tanggal masehi untuk mencari pawukon. \
+    Format tanggal dd-mm-yyyy')
 
 args = parser.parse_args()
 
@@ -59,7 +61,7 @@ def WeekFinder(weekday, pasar, year):
     while dt.weekday() != day:
         dt = dt + timedelta(days=1)
     lst_month = MONTH.values()
-    lst_month.sort()
+    #lst_month.sort()
     for mont in lst_month:
         while dt.month == mont:
             modulo = pasaran_formula(datetime.combine(dt,datetime.min.time()))
@@ -77,9 +79,9 @@ dino        = ('Minggu', 'Senen', 'Seloso', 'Rebo', 'Kemis', 'Jemuwah', 'Septu')
 if args.weton:
     dateinput   = datetime.strptime(args.weton, '%d-%m-%Y')
     modulo      = pasaran_formula(dateinput)
-    print TXT_YELLOW + ("Tanggal %s iku nagadinane %s %s" % \
-        (args.weton, dino[int(strftime(dateinput,"%w"))], pasaran[modulo]) )
-    print TXT_DEFAULT
+    print (TXT_YELLOW + ("Tanggal %s iku nagadinane %s %s" % \
+        (args.weton, dino[int(strftime(dateinput,"%w"))], pasaran[modulo]) ))
+    print (TXT_DEFAULT)
 
 if args.geblak:
     GEBLAKS = { '1. Geblake':0, '2. Telung dinane':3, '3. Pitung dinane':7,
@@ -92,20 +94,30 @@ if args.geblak:
     for k,v in od.items():
         date_pasar = dateinput + timedelta(days=int(v))
         modulo     = pasaran_formula(date_pasar)
-        print TXT_YELLOW + (str(k)+" jenat: %s, %s %s" % \
-            (strftime(date_pasar, '%d-%m-%Y'), dino[int(strftime(date_pasar, "%w"))], pasaran[modulo]))
-        print TXT_DEFAULT
+        print (TXT_YELLOW + (str(k)+" jenat: %s, %s %s" % \
+            (strftime(date_pasar, '%d-%m-%Y'), dino[int(strftime(date_pasar, "%w"))], pasaran[modulo])))
+        print (TXT_DEFAULT)
 
 if args.pasaran:
     var         = args.pasaran.split()
-    year        = raw_input('Mencari pasaran di Tahun: '+'\n')
+    year        = input('Mencari pasaran di Tahun: '+'\n')
     listdays    = WeekFinder(var[0].lower(), var[1].lower(), year)
     for key,day in enumerate(listdays):
-        print TXT_YELLOW+var[0]+" "+var[1]+TXT_DEFAULT+" ("+str(key)+") :"+strftime(day,"%d-%m-%Y")
+        print (TXT_YELLOW+var[0]+" "+var[1]+TXT_DEFAULT+" ("+str(key)+") :"+strftime(day,"%d-%m-%Y"))
 
-
-if not args.weton and not args.geblak and not args.pasaran:
-    print parser.print_help()
+if args.pawukon:
+    dateinput   = datetime.strptime(args.pawukon, '%d-%m-%Y')
+    datebase    = datetime.strptime('21 5 2000', '%d %m %Y')
+    rentang     = dateinput - datebase
+    rentang     = (rentang.days)
+    #base_a      = (rentang % 210) + 210
+    wk_cek      = rentang % 210
+    nm_wuku     = int(wk_cek/7)
+    modulo      = pasaran_formula(dateinput)
+    wuku_list = ["Sinto / Sinta","Landep","Wukir","Kurantil","Tolu","Gumbrek / Gumbreg","Warigalit / Wariga Alit","Warigagung / Wariga Agung","Julungwangi / Julangwangi","Sungsang","Galungan","Kuningan","Langkir","Mondisijo / Mandasiya","Julungpujut","Pahang","Kuruwekut / Kuru Welut","Marakeh","Tambir","Medangkungan","Maktal","Waye","Menahil / Manahil","Prangbakat","Bolo / Bala","Wugu","Wayang","Kulawu","Dukut","Watagunung / Watu Gunung"]
+    print(dateinput.strftime('%d %B %Y')+' iku dino '+dino[int(strftime(dateinput, "%w"))]+' '+pasaran[modulo]+', wuku: '+wuku_list[nm_wuku])
+if not args.weton and not args.geblak and not args.pasaran and not args.pawukon:
+    print (parser.print_help())
 
 
 

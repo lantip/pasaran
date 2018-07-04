@@ -41,6 +41,6 @@ if dn == "PM" and hn > 5 and hn != 12:
     diff        = tomorrow - datebase
     diffdays    = diff.days
     modulo      = diffdays % 5
-    print "Saiki dino "+ rtnow + ", malem " + dino[int(strftime(tomorrow,"%w"))]+" "+pasaran[modulo]
+    print ("Saiki dino "+ rtnow + ", malem " + dino[int(strftime(tomorrow,"%w"))]+" "+pasaran[modulo])
 else:
-    print "Saiki dino " + dino[int(strftime(datenow,"%w"))]+" "+ pasaran[modulo]
+    print ("Saiki dino " + dino[int(strftime(datenow,"%w"))]+" "+ pasaran[modulo])
