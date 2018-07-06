@@ -18,6 +18,11 @@ Saya menambahkan weton.py yang fungsinya untuk mencari:
 - geblak. untuk mencari tanggal 3 dina, 7 dina, 40 dina dan seterusnya, biasanya perhitungan ini dipakai untuk menentukan kapan orang jawa melakukan selamatan terkait dengan meninggalnya seseorang. untuk menggunakan fungsi ini, anda cukup memasukkan tanggal kematian orang tersebut.
 - pasaran. untuk mencari kombinasi hari dan pasaran dalam setahun. untuk ini anda tinggal memasukkan kombinasi misalnya "senin wage" atau "selasa kliwon" atau "kamis pahing" dan seterusnya.
 
+ASCII Art
+==========
+[06-07-2018] Saya tambahkan ascii art, menampilkan gambar wayang batara/dewa yang menaungi ketika melakukan pencarian wuku. ASCII art saya ambil dari `asciisciit` dengan penyesuaian beberapa file agar bisa berjalan di python3.
+
+Jalankan `pip install -r asciisciit/requirements.txt` agar bisa menampilkan gambar wayang dalam format ascii art.
 
 Penggunaan
 ==========
@@ -54,4 +59,5 @@ Penggunaan
 
 Rujukan
 ========
-- [Tiga Cara Menentukan Nama Wuku Dalam Pawukon Saka]  (https://jmpunsoed.files.wordpress.com/2015/12/4-agung-sugiyanto-indar1.pdf)
+- Tiga Cara Menentukan Nama Wuku Dalam Pawukon Saka  (https://jmpunsoed.files.wordpress.com/2015/12/4-agung-sugiyanto-indar1.pdf)
+- ASCII ART (https://github.com/derricw/asciisciit)

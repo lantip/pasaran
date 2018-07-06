@@ -4,7 +4,7 @@
 from datetime import datetime, timedelta, date
 import sys, time, argparse
 import collections
-
+import io, os
 from strftime import strftime
 
 parser = argparse.ArgumentParser(description='Mencari Weton, Geblak dan Pasaran')
@@ -30,6 +30,23 @@ TXT_BOLD_GREEN = "\033[1;32m"
 TXT_BOLD_RED = "\033[0;31m"
 TXT_DEFAULT = "\033[0m"
 TXT_BOLD_DEFAULT = "\033[1;39m"
+
+# coba generate ascii untuk wuku
+def generate_ascii(url, imgname):
+    from asciisciit.asciiart import AsciiImage
+    from PIL import Image
+    if 'http' in url:
+        import requests
+        r = requests.get(url, stream=True, verify=False)
+        if r.status_code == 200:
+            images = Image.open(io.BytesIO(r.content)) 
+            img = AsciiImage(images, 0.1, True)
+            print(img)
+    else:
+        images = Image.open(url) 
+        img = AsciiImage(images, 0.1, True)
+        print(img)
+
 
 # formula untuk mencari pasaran
 def pasaran_formula(dateinput):
@@ -116,6 +133,10 @@ if args.pawukon:
     modulo      = pasaran_formula(dateinput)
     wuku_list = ["Sinto / Sinta","Landep","Wukir","Kurantil","Tolu","Gumbrek / Gumbreg","Warigalit / Wariga Alit","Warigagung / Wariga Agung","Julungwangi / Julangwangi","Sungsang","Galungan","Kuningan","Langkir","Mondisijo / Mandasiya","Julungpujut","Pahang","Kuruwekut / Kuru Welut","Marakeh","Tambir","Medangkungan","Maktal","Waye","Menahil / Manahil","Prangbakat","Bolo / Bala","Wugu","Wayang","Kulawu","Dukut","Watagunung / Watu Gunung"]
     print(dateinput.strftime('%d %B %Y')+' iku dino '+dino[int(strftime(dateinput, "%w"))]+' '+pasaran[modulo]+', wuku: '+wuku_list[nm_wuku])
+    script_dir = os.path.dirname(__file__)
+    generate_ascii(os.path.join(script_dir,'images/'+str(nm_wuku)+'.jpg'), wuku_list[nm_wuku])
+    
+
 if not args.weton and not args.geblak and not args.pasaran and not args.pawukon:
     print (parser.print_help())
 
